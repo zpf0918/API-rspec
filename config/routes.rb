@@ -8,8 +8,9 @@ Rails.application.routes.draw do
       get "/reservations/:booking_code" => "reservations#show", as: :reservation
       post "reservations" => "reservations#create", as: :create_reservations
       patch "reservations/:booking_code" => "reservations#update", as: :update_reservation
-      delete "reservations/:booking_code" => "reservations#destroy", as: :cancel_reservation 
+      delete "reservations/:booking_code" => "reservations#destroy", as: :cancel_reservation
     end
   end
 
+  root "welcome#index"
 end

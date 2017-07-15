@@ -1,0 +1,7 @@
+<h1>订票系统</h1>
+
+<% if current_user %>
+  <p>api key 为<code><%= current_user.authentication_token %></code></p>
+<% else %>
+  <p>未的呢轮毂</p>
+<% end %>
