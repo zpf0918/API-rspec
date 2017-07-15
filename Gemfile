@@ -36,7 +36,9 @@ gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'will_paginate'
+
 group :development, :test do
+  gem 'rspec-rails'
   gem "awesome_rails_console"
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
