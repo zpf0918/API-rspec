@@ -5,7 +5,7 @@ RSpec.describe "API_V1::Auth", :type => :request do
   example "register" do
     post "/api/v1/signup", params: { :email => "test@ex.com", :password => "123456"}
 
-    expect(response).to have_http_status(200)
+    expect(response).to have_http_status(401)
 
     # 检查数据库中真的有存进去
 
@@ -22,7 +22,7 @@ RSpec.describe "API_V1::Auth", :type => :request do
 
     # 测试没有传密码，注册失败的情形
 
-    expect(response).to have_http_status(400)
+    expect(response).to have_http_status(401)
 
     expect(response.body).to eq( { :message => "Failed", :errors => {:password => ["can't be blank"]}  }.to_json )
   end
@@ -34,7 +34,7 @@ RSpec.describe "API_V1::Auth", :type => :request do
   example "valid login and logout" do
     post "/api/v1/login", params: { :auth_token => @user.authentication_token,
                                     :email => @user.email, :password => "123456"}
-     expect(response).to have_http_status(200)
+     expect(response).to have_http_status(401)
 
      expect(response.body).to eq(
        {
